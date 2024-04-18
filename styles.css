@@ -138,18 +138,7 @@ section {
 
 }
 
-/* end testing */
-#competitions {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    /* Display competition cards in a row */
-    flex-wrap: wrap;
-    /* Allow cards to wrap to the next line */
-    justify-content: space-between;
-    /* Add space between cards */
-}
+
 
 .competition-card {
     width: calc(50% - 50px);
@@ -281,4 +270,20 @@ footer {
 .register-now:hover {
     background-color: #FFD700;
     /* Brighter yellow on hover */
+}
+
+/* --------------------------- */
+.sponsors-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sponsors-container img {
+    margin: 0 10px; /* Adjust the margin as needed */
+}
+.sponsors-container img {
+    max-width: 100px; /* Set the maximum width */
+    max-height: 100px; /* Set the maximum height */
+    margin: 0 10px; /* Adjust the margin as needed */
 }

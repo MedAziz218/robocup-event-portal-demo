@@ -1,148 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robocup Portal</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <div class="logo">Robocup</div>
-            <ul>
-                <li><a href="#competitions">Competitions</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#sponsors">Sponsors</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="logo">Robocup</div>
+        <ul>
+          <li><a href="#competitions">Competitions</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-bg" style="background-image: url('img/hero-bg.jpg');"></div>
-        <div class="hero-content">
-
-            <h1>Welcome to Robocup</h1>
-            <p>Presented by Association Robotique ENSI</p>
-            <p>Join us for the ultimate robotics competition!</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn learn-more">Learn More</a>
-                <a href="#" class="btn register-now">Register Now</a>
-            </div>
-            <p><strong>Competition Starts In:</strong> <span id="countdown"></span></p>
+      <div
+        class="hero-bg"
+        style="background-image: url('img/hero-bg.jpg')"
+      ></div>
+      <div class="hero-content">
+        <h1>Welcome to Robocup</h1>
+        <p>Presented by Association Robotique ENSI</p>
+        <p>Join us for the ultimate robotics competition!</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn learn-more">Learn More</a>
+          <a href="#" class="btn register-now">Register Now</a>
         </div>
+        <p>
+          <strong>Competition Starts In:</strong> <span id="countdown"></span>
+        </p>
+      </div>
     </section>
 
-    <section class="sponsor-container">
-        <h1>Our Trusted Sponsors &amp; Partners</h1><span></span>
-        <div class="sponsor-cards">
-            <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide swiper-slide-active" style="width: 198.667px; margin-right: 40px;"
-                        data-swiper-slide-index="0"><img alt="SB" loading="lazy" width="200" height="0" decoding="async"
-                            data-nimg="1" style="color:transparent"
-                            srcset="/_next/image?url=%2Fassets%2Fieee%2FSB_W.webp&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fassets%2Fieee%2FSB_W.webp&amp;w=640&amp;q=75 2x"
-                            src="/_next/image?url=%2Fassets%2Fieee%2FSB_W.webp&amp;w=640&amp;q=75"></div>
-                    <div class="swiper-slide swiper-slide-next" style="width: 198.667px; margin-right: 40px;"
-                        data-swiper-slide-index="1"><img alt="SB" loading="lazy" width="200" height="0" decoding="async"
-                            data-nimg="1" style="color:transparent"
-                            srcset="/_next/image?url=%2Fassets%2Fieee%2FRAS_W.webp&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fassets%2Fieee%2FRAS_W.webp&amp;w=640&amp;q=75 2x"
-                            src="/_next/image?url=%2Fassets%2Fieee%2FRAS_W.webp&amp;w=640&amp;q=75"></div>
-                    <div class="swiper-slide" style="width: 198.667px; margin-right: 40px;" data-swiper-slide-index="2">
-                        <img alt="ESPRIT" loading="lazy" width="200" height="0" decoding="async" data-nimg="1"
-                            style="color:transparent"
-                            srcset="/_next/image?url=%2Fassets%2Fpartners%2FESPRIT.webp&amp;w=256&amp;q=75 1x, /_next/image?url=%2Fassets%2Fpartners%2FESPRIT.webp&amp;w=640&amp;q=75 2x"
-                            src="/_next/image?url=%2Fassets%2Fpartners%2FESPRIT.webp&amp;w=640&amp;q=75"></div>
-                </div>
-            </div>
+    <section id="sponsors" class="sponsor-container">
+      <h1>Our Trusted Sponsors &amp; Partners</h1>
+      <span></span>
+      <div class="sponsor-cards">
+        <div class="sponsors-container" id="sponsorsContainer">
+          <!-- Images will be loaded dynamically here -->
         </div>
+      </div>
     </section>
 
-    <section class="challenges-content-section">
-        <h2>Competitions Overview</h2>
-        <div class="content">
-            <div class="challenges-content">
-                <div class="card">
-                    <img alt="All Terrain" loading="lazy" width="300" height="420" decoding="async" data-nimg="1"
-                        style="color:transparent" src="img/autonomous.png">
-                    <div class="flex flex-col gap-2">
-                        <h2>Autonomous</h2>
-                        <p>Where robots autonomously navigate from mission to mission, striving to achieve the highest
-                            possible score! Monaco's circuit demands precision and strategic coding.</p>
-                    </div>
-                    <a target="_blank" rel="noopener noreferrer" href="#">Learn More<svg stroke="currentColor"
-                            fill="none" stroke-width="0" viewBox="0 0 15 15" class="h-5 w-5" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                </div>
-                <div class="card">
-                    <img alt="All Terrain" loading="lazy" width="300" height="420" decoding="async" data-nimg="1"
-                        style="color:transparent" src="img/autonomous.png">
-                    <div class="flex flex-col gap-2">
-                        <h2>All Terrain</h2>
-                        <p>Sakhir circuit is calling for skilled drivers for a precision driven journey, seamlessly
-                            shifting
-                            from country to country, navigating the most famous F1 circuits to reach the finish line in
-                            record time.</p>
-                    </div>
-                    <a target="_blank" rel="noopener noreferrer" href="#">Learn More<svg stroke="currentColor"
-                            fill="none" stroke-width="0" viewBox="0 0 15 15" class="h-5 w-5" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                </div>
-                <div class="card">
-                    <img alt="All Terrain" loading="lazy" width="300" height="420" decoding="async" data-nimg="1"
-                        style="color:transparent" src="img/autonomous.png">
-                    <div class="flex flex-col gap-2">
-                        <h2>Junior</h2>
-                        <p>The South is your ultimate pit stop to uncover the winning formula in the fast lane! Younger
-                            drivers, rev up your engines as you validate missions to secure the lead and claim victory.
-                        </p>
-                    </div>
-                    <a target="_blank" rel="noopener noreferrer" href="#">Learn More<svg stroke="currentColor"
-                            fill="none" stroke-width="0" viewBox="0 0 15 15" class="h-5 w-5" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                </div>
-                <div class="card">
-                    <img alt="All Terrain" loading="lazy" width="300" height="420" decoding="async" data-nimg="1"
-                        style="color:transparent" src="img/autonomous.png">
-                    <div class="flex flex-col gap-2">
-                        <h2>Fighter</h2>
-                        <p>Monza is a battlefield where coding meets combat, and the power of hardware is unleashed in a
-                            fierce duel between robots! Enter the arena inspired by the iconic Monza Circuit in Formula
-                            1,
-                            where your robots engage in a relentless clash of strength and strategy</p>
-                    </div>
-                    <a target="_blank" rel="noopener noreferrer" href="#">Learn More<svg stroke="currentColor"
-                            fill="none" stroke-width="0" viewBox="0 0 15 15" class="h-5 w-5" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                </div>
+    <section id="competitions" class="challenges-content-section">
+      <h2>Competitions Overview</h2>
+      <div class="content">
+        <div class="challenges-content">
+          <div class="card">
+            <img
+              alt="All Terrain"
+              loading="lazy"
+              width="300"
+              height="420"
+              decoding="async"
+              data-nimg="1"
+              style="color: transparent"
+              src="img/autonomous.png"
+            />
+            <div class="flex flex-col gap-2">
+              <h2>Autonomous</h2>
+              <p>
+                Where robots autonomously navigate from mission to mission,
+                striving to achieve the highest possible score! Monaco's circuit
+                demands precision and strategic coding.
+              </p>
             </div>
+            <a target="_blank" rel="noopener noreferrer" href="#"
+              >Learn More<svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="0"
+                viewBox="0 0 15 15"
+                class="h-5 w-5"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div class="card">
+            <img
+              alt="All Terrain"
+              loading="lazy"
+              width="300"
+              height="420"
+              decoding="async"
+              data-nimg="1"
+              style="color: transparent"
+              src="img/autonomous.png"
+            />
+            <div class="flex flex-col gap-2">
+              <h2>All Terrain</h2>
+              <p>
+                Sakhir circuit is calling for skilled drivers for a precision
+                driven journey, seamlessly shifting from country to country,
+                navigating the most famous F1 circuits to reach the finish line
+                in record time.
+              </p>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" href="#"
+              >Learn More<svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="0"
+                viewBox="0 0 15 15"
+                class="h-5 w-5"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div class="card">
+            <img
+              alt="All Terrain"
+              loading="lazy"
+              width="300"
+              height="420"
+              decoding="async"
+              data-nimg="1"
+              style="color: transparent"
+              src="img/autonomous.png"
+            />
+            <div class="flex flex-col gap-2">
+              <h2>Junior</h2>
+              <p>
+                The South is your ultimate pit stop to uncover the winning
+                formula in the fast lane! Younger drivers, rev up your engines
+                as you validate missions to secure the lead and claim victory.
+              </p>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" href="#"
+              >Learn More<svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="0"
+                viewBox="0 0 15 15"
+                class="h-5 w-5"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div class="card">
+            <img
+              alt="All Terrain"
+              loading="lazy"
+              width="300"
+              height="420"
+              decoding="async"
+              data-nimg="1"
+              style="color: transparent"
+              src="img/autonomous.png"
+            />
+            <div class="flex flex-col gap-2">
+              <h2>Fighter</h2>
+              <p>
+                Monza is a battlefield where coding meets combat, and the power
+                of hardware is unleashed in a fierce duel between robots! Enter
+                the arena inspired by the iconic Monza Circuit in Formula 1,
+                where your robots engage in a relentless clash of strength and
+                strategy
+              </p>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" href="#"
+              >Learn More<svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="0"
+                viewBox="0 0 15 15"
+                class="h-5 w-5"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
+      </div>
     </section>
     <footer>
-        <p>&copy; 2024 Robocup Portal. All rights reserved.</p>
+      <p>&copy; 2024 Robocup Portal. All rights reserved.</p>
     </footer>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
