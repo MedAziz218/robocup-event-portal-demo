@@ -95,7 +95,7 @@ section {
     padding-bottom: 2.5rem;
 }
 
-.card {
+.challenge-card {
     display: flex;
     width: 226px;
     
@@ -109,23 +109,23 @@ section {
     transition-duration: .25s;
 }
 
-.card img {
+.challenge-card img {
     max-width: 100%;
     height: auto;
     display: block;
     vertical-align: middle;
 }
-.card h2 {
+.challenge-card h2 {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
     text-transform: uppercase;
 }
-.card p {
+.challenge-card p {
     text-align: justify;
     color: rgb(153 153 153 / var(--tw-text-opacity));
 }
-.card a {
+.challenge-card a {
     
     display: inline-flex;
     align-items: center;
@@ -137,8 +137,6 @@ section {
     color:var(--yellow);
 
 }
-
-
 
 .competition-card {
     width: calc(50% - 50px);
