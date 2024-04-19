@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const numSponsors = 5; // Change the number of sponsors as needed
     const sponsorsFolder = "img/sponsors/"; // Change the folder path as needed
-
+    // TODO: clean this part
     for (let k = 1; k <= 1; k++) {
         for (let i = 1; i <= numSponsors; i++) {
             const img = new Image();
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 var rightJS = {
     multiplier: 0.05,// control speed and direction here;
+    fps: 100, // adjust fps for more smooth animation or better performance;
     lastTime: Date.now(),
     deltaTime: Date.now() - this.lastTime,
     reset: false,
@@ -67,25 +68,12 @@ var rightJS = {
 
             if (((x0 > 0) && x0 - w0 > -W0) || (x0 <= -W0) || (x1 > w0)) x1 += this.multiplier * this.deltaTime;
             if (((x1 > w0) && x1 - w1 > -W1 + w0) || ((x1 <= -W1 + w0)) || (x0 > 0)) x0 += this.multiplier * this.deltaTime;
-            // if ((x1 > w0) || x1 - w1 < -W1 + w0) x0 += 0.1 * deltaTime;
-            // if ((x0 > 0) || x0 - w0 < -W0) x1 += 0.1 * deltaTime;
-            // console.log(String(x1) + ' <-> ' + String(w0));
-            if (x0 - w0 > 0) x0 = -W0; // 
-            if (x1 - w1 - w0 > 0) x1 = -W1 + w0;
 
+            if (x0 - w0 > 0) x0 = -W0;
+            if (x1 - w1 - w0 > 0) x1 = -W1 + w0;
 
             rightJS.Tags[0].style.right = x0 + 'px'
             rightJS.Tags[1].style.right = x1 + 'px'
-            // console.log(String(x) + ' <-> ' + String(w) );
-            // if (x0 > 0 && x0-w0>-rightJS.Tags[0].parentElement.offsetWidth) x0 = -W0;
-
-            // rightJS.Tags[0].style.right = x0 + 'px';
-            // rightJS.Tags[1].style.right = x1 + w0 + 'px';
-            // if (x > rightJS.Tags[index].offsetWidth) x = -W;
-            // rightJS.Tags[0].style.right = x0 + 'px'
-            // if (x0 > 0 || x0-w0 <= -W0 ) rightJS.Tags[1].style.right = x1 + 'px'
-
-            // if (rightJS.Tags[index].parentElement.parentElement.querySelector(':hover') !== rightJS.Tags[index].parentElement) rightJS.Tags[index].style.right = x0 + 'px';
         }
         if (this.reset) {
             this.reset = false;
@@ -95,18 +83,36 @@ var rightJS = {
             setTimeout(() => {
                 // this.loop();
                 requestAnimationFrame(this.loop.bind(this));
-            }, 1000 / 60);
+            }, 1000 / this.fps);
         }
+    },
+    onreset: function () {
+        this.reset = true;
     }
 };
+
+window.addEventListener('load', rightJS.init());
+window.addEventListener('resize', (e) => { if (verifyResizeEvent(e)) rightJS.onreset(); });
+
+// ------------------------------------------------------------------------------------------------------------------------------------
+/**
+ * Width of the window.
+ * @type {number}
+ */
 var gWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+/**
+ * Height of the window.
+ * @type {number}
+ */
 var gHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+/**
+ * Verifies whether the resize event is triggered by a significant change in window dimensions.
+ * This is useful for handling mobile devices where the resize event can be triggered by the appearance or disappearance of the address bar.
+ * @param {Event} e - The resize event object.
+ * @returns {boolean} True if the resize event is significant, false otherwise.
+ */
 function verifyResizeEvent(e) {
 
-    // Discard the second event of a jQuery.event.trigger() and
-    // when an event is called after a page has unloaded
-
-    // Custom code for detecting and pausing resize
     if (e.type == 'resize') {
 
         var tempHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
@@ -119,17 +125,4 @@ function verifyResizeEvent(e) {
         }
     }
     return false;
-
-    // Custom code end.
-
 };
-
-
-window.addEventListener('load', (e) => {
-    rightJS.init();
-}
-);
-window.addEventListener('resize', (e) => {
-    
-    if (verifyResizeEvent(e)) rightJS.reset = true;
-});
