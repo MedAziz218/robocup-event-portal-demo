@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 var rightJS = {
-    multiplier : 0.05,// control speed and direction here;
-    lastTime :Date.now(),
-    deltaTime : Date.now() - this.lastTime,
-    reset:false,
+    multiplier: 0.05,// control speed and direction here;
+    lastTime: Date.now(),
+    deltaTime: Date.now() - this.lastTime,
+    reset: false,
     init: function () {
         rightJS.Tags = document.querySelectorAll('.rightJS');
         for (var i = 0; i < rightJS.Tags.length; i++) {
@@ -45,7 +45,7 @@ var rightJS = {
         var w0 = rightJS.Tags[0].offsetWidth;
         var W1 = rightJS.Tags[1].parentElement.offsetWidth;
 
-        rightJS.Tags[0].style.right = -W0/2 + w0/2 + 'px';
+        rightJS.Tags[0].style.right = -W0 / 2 + w0 / 2 + 'px';
         rightJS.Tags[1].style.right = -W1 + w0 + 'px';
 
 
@@ -95,9 +95,41 @@ var rightJS = {
             setTimeout(() => {
                 // this.loop();
                 requestAnimationFrame(this.loop.bind(this));
-              }, 1000/60);
+            }, 1000 / 60);
         }
     }
 };
-window.addEventListener('load', rightJS.init);
-window.addEventListener('resize', ()=>{rightJS.reset = true;});
+var gWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var gHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+function verifyResizeEvent(e) {
+
+    // Discard the second event of a jQuery.event.trigger() and
+    // when an event is called after a page has unloaded
+
+    // Custom code for detecting and pausing resize
+    if (e.type == 'resize') {
+
+        var tempHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        var tempWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        if (Math.abs(gHeight - tempHeight) > 100 || gWidth != tempWidth) {
+            gWidth = tempWidth;
+            gHeight = tempHeight;
+            return true;
+        }
+    }
+    return false;
+
+    // Custom code end.
+
+};
+
+
+window.addEventListener('load', (e) => {
+    rightJS.init();
+}
+);
+window.addEventListener('resize', (e) => {
+    
+    if (verifyResizeEvent(e)) rightJS.reset = true;
+});
