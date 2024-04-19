@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const numSponsors = 5; // Change the number of sponsors as needed
     const sponsorsFolder = "img/sponsors/"; // Change the folder path as needed
-    // TODO: clean this part
+
     for (let k = 1; k <= 1; k++) {
         for (let i = 1; i <= numSponsors; i++) {
             const img = new Image();
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sponsorsContainer.appendChild(img);
         }
     }
-    for (let k = 1; k <= 1; k++) {
+    for (let k = 1; k <= 3; k++) {
         for (let i = 1; i <= numSponsors; i++) {
             const img = new Image();
             img.src = sponsorsFolder + i + ".png";
@@ -27,11 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 var rightJS = {
-    multiplier: 0.05,// control speed and direction here;
-    fps: 100, // adjust fps for more smooth animation or better performance;
+    // control speed and direction here;
+    multiplier: 0.05,
+    // frames per second
+    fps: 100,
     lastTime: Date.now(),
     deltaTime: Date.now() - this.lastTime,
     reset: false,
+
     init: function () {
         rightJS.Tags = document.querySelectorAll('.rightJS');
         for (var i = 0; i < rightJS.Tags.length; i++) {
@@ -53,7 +56,12 @@ var rightJS = {
         rightJS.loop();
         this.lastTime = Date.now();
     },
+    onresize: function () {
+        // Function logic here
+        this.reset = true;
+    },
     loop: function () {
+
         this.deltaTime = Date.now() - this.lastTime;
         this.lastTime = Date.now();
 
@@ -69,11 +77,13 @@ var rightJS = {
             if (((x0 > 0) && x0 - w0 > -W0) || (x0 <= -W0) || (x1 > w0)) x1 += this.multiplier * this.deltaTime;
             if (((x1 > w0) && x1 - w1 > -W1 + w0) || ((x1 <= -W1 + w0)) || (x0 > 0)) x0 += this.multiplier * this.deltaTime;
 
-            if (x0 - w0 > 0) x0 = -W0;
+            if (x0 - w0 > 0) x0 = -W0; // 
             if (x1 - w1 - w0 > 0) x1 = -W1 + w0;
+
 
             rightJS.Tags[0].style.right = x0 + 'px'
             rightJS.Tags[1].style.right = x1 + 'px'
+
         }
         if (this.reset) {
             this.reset = false;
@@ -85,14 +95,11 @@ var rightJS = {
                 requestAnimationFrame(this.loop.bind(this));
             }, 1000 / this.fps);
         }
-    },
-    onreset: function () {
-        this.reset = true;
     }
 };
 
-window.addEventListener('load', rightJS.init());
-window.addEventListener('resize', (e) => { if (verifyResizeEvent(e)) rightJS.onreset(); });
+window.addEventListener('load', rightJS.init);
+window.addEventListener('resize', (e) => { if (verifyResizeEvent(e)) rightJS.onresize(); });
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 /**
