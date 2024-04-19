@@ -40,6 +40,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
+
 a {
     color: inherit;
     text-decoration: inherit;
@@ -66,6 +67,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
+
 section {
     padding-bottom: 20px;
     text-align: center;
@@ -98,7 +100,7 @@ section {
 .challenge-card {
     display: flex;
     width: 226px;
-    
+
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -113,20 +115,23 @@ section {
     max-width: 100%;
     height: auto;
     display: block;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
+
 .challenge-card h2 {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
     text-transform: uppercase;
 }
+
 .challenge-card p {
     text-align: justify;
     color: rgb(153 153 153 / var(--tw-text-opacity));
 }
+
 .challenge-card a {
-    
+
     display: inline-flex;
     align-items: center;
     gap: .5rem;
@@ -134,7 +139,7 @@ section {
     font-size: .875rem;
     line-height: 1.25rem;
     --tw-text-opacity: 1;
-    color:var(--yellow);
+    color: var(--yellow);
 
 }
 
@@ -271,17 +276,46 @@ footer {
 }
 
 /* --------------------------- */
-.sponsors-container {
+
+/* .sponsor-cards {
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+} */
+.sponsor-containerr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.sponsors-container img {
-    margin: 0 10px; /* Adjust the margin as needed */
+.marquee img {
+    max-width: 100px;
+    max-height: 100px;
+    padding: 0px;
+
 }
-.sponsors-container img {
-    max-width: 100px; /* Set the maximum width */
-    max-height: 100px; /* Set the maximum height */
-    margin: 0 10px; /* Adjust the margin as needed */
+.marquee{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.li {
+    display: flex;
+    
+    width: 80%;
+    padding: 1%;
+    margin: 1% 10%;
+
+    border-radius: 0.5em;
+    box-shadow: 0 0.1em 0.5em;
+}
+
+.marquee div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
