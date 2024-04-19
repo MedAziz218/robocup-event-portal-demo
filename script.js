@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sponsorsContainer.appendChild(img);
         }
     }
-    for (let k = 1; k <= 3; k++) {
+    for (let k = 1; k <= 1; k++) {
         for (let i = 1; i <= numSponsors; i++) {
             const img = new Image();
             img.src = sponsorsFolder + i + ".png";
